@@ -8,8 +8,9 @@ export interface Profile {
 }
 
 export const initializeLiff = async (): Promise<void> => {
+  const liffId:string = process.env.LIFF_ID || '';
   try {
-    await liff.init({ liffId: 'YOUR_LIFF_ID' }); // 必要なLIFF IDを設定
+    await liff.init({ liffId: liffId }); // 必要なLIFF IDを設定
     console.log('LIFF initialized');
   } catch (error) {
     console.error('LIFF initialization failed', error);
